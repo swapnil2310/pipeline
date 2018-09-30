@@ -4,10 +4,28 @@ pipeline{
 		
 		stages {
 		
-			stage('Test') {
-					steps{
-							echo 'Hello Pipeline'
-					}
+			stage('One') {
+			
+						steps {
+								echo 'Hello Pipeline'
+						}
+			}
+			stage('Two') {
+			
+						steps {
+								input('Do you want to proceed')
+						}
+			}
+			stage('Three') {
+						
+						when{
+							not{
+								branch 'phase-2'
+							}
+						}
+						steps{
+							echo "Hello stage three"
+						}
 			}
 			
 		}
