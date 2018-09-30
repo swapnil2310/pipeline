@@ -31,7 +31,7 @@ pipeline{
 						  parallel{
 								stage('Unit Test'){
 										agent{
-											steps{
+											docker{
 											echo "Unit test step"
 											}
 										}
