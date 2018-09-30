@@ -30,14 +30,17 @@ pipeline{
 			stage('Four') {
 						  parallel{
 								stage('Unit Test'){
+										steps{
+											echo "Unit test step"
+										}
+								}
+								stage('Integration Test'){
 										agent{
 											docker{
 												reuseNode false
 												image 'ubuntu'
 											}
 										}
-								}
-								stage('Integration Test'){
 										steps{
 											echo "Running Integration test"
 										}	
