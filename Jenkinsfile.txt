@@ -30,8 +30,10 @@ pipeline{
 			stage('Four') {
 						  parallel{
 								stage('Unit Test'){
-										steps{
+										agent{
+											steps{
 											echo "Unit test step"
+											}
 										}
 								}
 								stage('Integration Test'){
